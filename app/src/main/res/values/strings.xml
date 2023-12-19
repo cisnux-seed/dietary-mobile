@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Dietary Test XML</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="take_photo_button">take photo</string>
     <string name="gallery_button">Gallery</string>
     <string name="rotate_button">Rotate</string>
@@ -14,8 +12,6 @@
     <string name="health_profile_dialog_negative_btn">Update</string>
     <string name="health_profile_dialog_positive_btn">Done</string>
     <string name="health_profile_dialog_message">Review your health profile: verify and update your information for accuracy.</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="age_label">Age</string>
     <string name="dummy_dialog_age">40 years old</string>
     <string name="weight_label">Weight</string>
