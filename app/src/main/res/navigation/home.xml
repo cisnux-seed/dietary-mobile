@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/foodScannerFragment"
+        android:name="dev.cisnux.dietarytestxml.presentation.foodscanner.FoodScannerFragment"
+        android:label="fragment_food_scanner"
+        tools:layout="@layout/fragment_food_scanner">
+        <action
+            android:id="@+id/action_foodScannerFragment_to_scannerResultFragment"
+            app:destination="@id/scannerResultFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_foodScannerFragment_to_updateHealthProfileFragment"
+            app:destination="@id/updateHealthProfileFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerResultFragment"
+        android:name="dev.cisnux.dietarytestxml.presentation.scannerresult.ScannerResultFragment"
+        android:label="fragment_scanner_result"
+        tools:layout="@layout/fragment_scanner_result">
+        <argument
+            android:name="filePath"
+            app:argType="string" />
+        <argument
+            android:name="isRotatable"
+            app:argType="boolean" />
+        <argument
+            android:name="isBackCamera"
+            app:argType="boolean" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="dev.cisnux.dietarytestxml.data.locals.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_foodScannerFragment"
+            app:destination="@id/foodScannerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateHealthProfileFragment"
+        android:name="dev.cisnux.dietarytestxml.presentation.updatehealthprofile.UpdateHealthProfileFragment"
+        android:label="fragment_update_health_profile"
+        tools:layout="@layout/fragment_update_health_profile" />
+
+</navigation>
