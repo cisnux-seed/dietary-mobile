@@ -3,7 +3,7 @@ enum NavDestination {
   report(path: '/report'),
   myProfile(path: '/myprofile'),
   foodScanner(path: 'foodscanner'),
-  scannerResult(path: 'scannerresult/:foodPicture');
+  scannerResult(path: 'scannerresult');
 
   const NavDestination({required this.path});
 

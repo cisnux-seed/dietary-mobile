@@ -3,7 +3,7 @@ import 'package:dietary_flutter/presentation/navigation/nav_destination.dart';
 import 'package:dietary_flutter/presentation/pages/foodscanner/food_scanner_page.dart';
 import 'package:dietary_flutter/presentation/pages/myprofile/my_profile.dart';
 import 'package:dietary_flutter/presentation/pages/report/report_page.dart';
-import 'package:dietary_flutter/presentation/pages/scannerresult/ScannerResultPage.dart';
+import 'package:dietary_flutter/presentation/pages/scannerresult/scanner_result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'pages/home/home_page.dart';
@@ -56,7 +56,7 @@ final class DietaryApp extends StatelessWidget {
                         path: NavDestination.scannerResult.path,
                         builder: (_, state) {
                           return ScannerResultPage(
-                            foodPicture: state.pathParameters['foodPicture'],
+                            foodPicture: state.uri.queryParameters['foodPicture'],
                           );
                         },
                       ),

@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
+import 'package:dietary_flutter/presentation/navigation/nav_destination.dart';
 import 'package:dietary_flutter/presentation/navigation/navigation_provider.dart';
-import 'package:dietary_flutter/presentation/pages/scannerresult/ScannerResultPage.dart';
 import 'package:dietary_flutter/presentation/styles/material_shapes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -134,14 +134,10 @@ class _FoodScannerPageState extends ConsumerState<FoodScannerPage> {
                                 final image = await ImagePicker()
                                     .pickImage(source: ImageSource.gallery);
                                 if (image == null) return;
-                                await Navigator.of(context)
-                                    .push(MaterialPageRoute(
-                                  builder: (context) => ScannerResultPage(
-                                    foodPicture: image.path,
-                                  ),
-                                ));
+                                if (!context.mounted) return;
+                                context.go("/${NavDestination.foodScanner.path}/${NavDestination.scannerResult.path}?foodPicture=${image.path}");
                               } on PlatformException catch (e) {
-                                print(e);
+                                debugPrint(e.message);
                               }
                             },
                             child: Text(
@@ -367,7 +363,7 @@ class _FoodScannerPageState extends ConsumerState<FoodScannerPage> {
                                   ),
                                   actions: <Widget>[
                                     TextButton(
-                                      onPressed: () => Navigator.pop(context),
+                                      onPressed: () => context.pop(),
                                       child: const Text('Update'),
                                     ),
                                     TextButton(
@@ -381,18 +377,12 @@ class _FoodScannerPageState extends ConsumerState<FoodScannerPage> {
 
                                           if (!mounted) return;
 
-                                          await Navigator.of(context)
-                                              .push(MaterialPageRoute(
-                                            builder: (context) =>
-                                                ScannerResultPage(
-                                              foodPicture: image.path,
-                                            ),
-                                          ));
+                                          context.go("/${NavDestination.foodScanner.path}/${NavDestination.scannerResult.path}?foodPicture=${image.path}");
                                         } catch (e) {
                                           // If an error occurs, log the error to the console.
                                           // print(e);
                                         } finally {
-                                          Navigator.pop(context);
+                                          context.pop();
                                         }
                                       },
                                       child: const Text('Done'),
