@@ -28,7 +28,7 @@ class FoodScannerViewModel @Inject constructor(
         _galleryFile.value = fileService.fileFromUri(image = image)
     }
 
-    fun clearFile(){
+    fun clearFileStates(){
         _cameraFile.value = null
         _galleryFile.value = null
     }

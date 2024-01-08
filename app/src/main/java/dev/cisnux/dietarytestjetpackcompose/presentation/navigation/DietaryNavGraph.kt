@@ -161,10 +161,6 @@ fun DietaryNavGraph(
                     nullable = false
                     type = NavType.StringType
                 },
-                navArgument(name = "isBackCamera") {
-                    nullable = false
-                    type = NavType.BoolType
-                },
             ),
             enterTransition = {
                 slideIntoContainer(

@@ -1,6 +1,5 @@
 package dev.cisnux.dietarytestjetpackcompose.presentation.scannerresult
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -32,12 +31,7 @@ fun ScannerResultScreen(
     modifier: Modifier = Modifier,
     viewModel: ScannerResultViewModel = hiltViewModel(),
 ) {
-    val isBackCamera by viewModel.isBackCamera.collectAsState()
     val foodPicture by viewModel.foodPicture.collectAsState()
-
-    isBackCamera?.let {
-//        viewModel.rotateFile(foodPicture, it)
-    }
 
     ScannerResultContent(
         body = {
@@ -80,11 +74,10 @@ private fun ScannerResultBody(
     foodPicture: String,
     modifier: Modifier = Modifier,
 ) {
-    Log.d("ScannerResultBody", foodPicture)
     Box(modifier = modifier.fillMaxSize()) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current).data(foodPicture).build(),
-            contentDescription = "",
+            contentDescription = null,
             modifier = Modifier.fillMaxSize()
         )
         IconButton(

@@ -1,7 +1,6 @@
 package dev.cisnux.dietarytestjetpackcompose.presentation.navigation
 
 import android.content.Intent
-import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -17,9 +16,8 @@ class NavComponentAction(
     }
     val navigateToScannerResult: (
         foodPicture: String,
-        isBackCamera: Boolean
-    ) -> Unit = { foodPicture, isBackCamera ->
-        navController.navigate(route = "scanner_result?isBackCamera=$isBackCamera&foodPicture=$foodPicture")
+    ) -> Unit = { foodPicture ->
+        navController.navigate(route = "scanner_result?foodPicture=$foodPicture")
     }
     val navigateUp: () -> Unit = {
         navController.navigateUp()
