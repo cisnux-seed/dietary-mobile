@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?attr/colorSurface"
-    tools:context=".data.locals.HomeFragment">
+    tools:context=".presentation.home.HomeFragment">
 
     <TextView
         style="@style/TextAppearance.Material3.TitleLarge"

@@ -42,7 +42,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="dev.cisnux.dietarytestxml.data.locals.HomeFragment"
+        android:name="dev.cisnux.dietarytestxml.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
         <action
